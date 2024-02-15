@@ -1,6 +1,8 @@
 package ru.alexeygold2077;
 
-public class TestClass {
+import java.io.Serializable;
+
+public class TestClass implements Serializable {
     public String ulala = "I am a ulala!";
 
     @Override

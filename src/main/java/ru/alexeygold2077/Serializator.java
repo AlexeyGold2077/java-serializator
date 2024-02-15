@@ -1,7 +1,6 @@
 package ru.alexeygold2077;
 
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -19,5 +18,11 @@ public class Serializator <T> {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(Files.newOutputStream(Paths.get(filePath)));
         objectOutputStream.writeObject(object);
         objectOutputStream.close();
+    }
+
+    public T Deserialize() throws IOException, ClassNotFoundException {
+        ObjectInputStream objectInputStream = new ObjectInputStream(Files.newInputStream(Paths.get(filePath)));
+        @SuppressWarnings("unchecked") T forReturt = (T) objectInputStream.readObject();
+        return forReturt;
     }
 }

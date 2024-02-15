@@ -10,6 +10,13 @@ public class Main {
 
 		try {
 			serializator.Serialize();
-		} catch (IOException ioe) {}
-	}
+		} catch (IOException ignored) {}
+
+		try {
+			TestClass testClass2 = serializator.Deserialize();
+			System.out.println(testClass2.toString());
+		} catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
